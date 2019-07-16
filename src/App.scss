@@ -1,0 +1,33 @@
+.page {
+  padding: 3em;
+  &-container {
+    padding: 10em;
+  }
+}
+body {
+  min-height: 101vh;
+}
+@import url("https://fonts.googleapis.com/css?family=Asar&display=swap");
+h1 {
+  font-family: "Asar", sans-serif;
+}
+h1,
+h2,
+h3 {
+  font-weight: normal;
+}
+.define {
+  padding-left: 0.4em;
+  padding-right: 0.4em;
+  box-shadow: inset 0 -24px 0 lighten(#b4e7f8, 10);
+  cursor: pointer;
+  &:hover {
+    background-color: #b4e7f8;
+    box-shadow: inset 0 -24px 0 #b4e7f8;
+  }
+}
+img {
+  width: 40%;
+  margin: 2em;
+  display: block;
+}

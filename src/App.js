@@ -1,26 +1,38 @@
 import React from 'react';
 import logo from './logo.svg';
-import './App.css';
+import "./App.scss";
+import Select from 'react-select'
+import Page from './Page';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+class App extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      history: [
+        "instructions"
+      ]
+    }
+    this.addDefinition = this.addDefinition.bind(this)
+  }
+  addDefinition(title, pageNumber) {
+    console.log("Added...", title)
+    let history = this.state.history
+    history.length = pageNumber + 1;
+    history.push(title)
+    this.setState({
+      history
+    })
+  }
+  render() {
+    return (
+      <div className="page-container">
+        {this.state.history.map((topic, index) => (
+          <Page is={topic} addDefinition={this.addDefinition} pageNumber={index} />
+        ))}
+      </div>
+    );
+  }
 }
 
 export default App;
